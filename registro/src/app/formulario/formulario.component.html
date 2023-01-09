@@ -1,0 +1,32 @@
+<h1 style="color: rgb(0, 0, 128);">Registro de Personas</h1>
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <form (ngSubmit)="onSubmit(contactForm.value)" #contactForm="ngForm">
+            
+            <label for="name">Nombre:</label>
+            <input class="form-control" type="text" id="name" name="name" [(ngModel)] = "model.name" required>
+        
+            <label for="name">DNI:</label>
+            <input class="form-control" type="number" id="dni" name="dni" [(ngModel)] = "model.dni" required>
+        
+            <label for="name">Estad Civil</label>
+            <select name="estado" id="estado" class="form-select" [(ngModel)] = "model.estado" required>
+                <option value="" disabled selected hidden>Seleccione estado civil</option>
+                <option value="soltero">Soltero</option>
+                <option value="casado">Casado</option>
+                <option value="viudo">Viudo</option>
+            </select>
+            
+            <br>
+            <div class="d-grid gap-2 col-4 float">
+                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+            </div>
+        </form>
+      </div>
+  
+      <div class="col-md-4">
+        <app-usuario *ngIf="valores" [usuarioRegistro]="valores"></app-usuario>
+      </div>
+    </div>
+  </div>
